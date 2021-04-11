@@ -1,5 +1,5 @@
 export class App {
-    opwApiKey = "ab92e02a3588f11d21f76a698c5dd3bf";
+    opwApiKey = API_KEY;
     constructor() {
         this.getCityInfo('zakopane');
     }
