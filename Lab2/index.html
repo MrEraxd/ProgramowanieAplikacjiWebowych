@@ -1,10 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-$END$
+    <div id="appContainer">
+        <div id="soundControls">
+            <audio src="sounds/boom.wav" data-name-of-sound="boom"></audio>
+            <div onclick="playSound('boom')"><div>Q</div></div>
+
+            <audio src="sounds/clap.wav" data-name-of-sound="clap"></audio>
+            <div onclick="playSound('clap')"><div>W</div></div>
+
+            <audio src="sounds/hihat.wav" data-name-of-sound="hihat"></audio>
+            <div onclick="playSound('hihat')"><div>E</div></div>
+
+            <audio src="sounds/kick.wav" data-name-of-sound="kick"></audio>
+            <div onclick="playSound('kick')"><div>R</div></div>
+
+            <audio src="sounds/openhat.wav" data-name-of-sound="openhat"></audio>
+            <div onclick="playSound('openhat')"><div>A</div></div>
+
+            <audio src="sounds/ride.wav" data-name-of-sound="ride"></audio>
+            <div onclick="playSound('ride')"><div>S</div></div>
+
+            <audio src="sounds/snare.wav" data-name-of-sound="snare"></audio>
+            <div onclick="playSound('snare')"><div>D</div></div>
+
+            <audio src="sounds/tink.wav" data-name-of-sound="tink"></audio>
+            <div onclick="playSound('tink')"><div>F</div></div>
+        </div>
+
+        <div id="recordings">
+            <div>
+                <span>Channel 1</span>
+                <div>
+                    <button class="clear" onclick="clearChannel('channel1')">
+                        <span class="material-icons">clear</span>
+                    </button>
+
+                    <button class="toggleRecording" onclick="toggleRecording('channel1')">
+                        <span class="material-icons">edit</span>
+                    </button>
+
+                    <button class="playChannnel" onclick="playChannel('channel1')">
+                        <span class="material-icons">play_arrow</span>
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <span>Channel 2</span>
+                <div>
+                    <button class="clear" onclick="clearChannel('channel2')">
+                        <span class="material-icons">clear</span>
+                    </button>
+
+                    <button class="toggleRecording" onclick="toggleRecording('channel2')">
+                        <span class="material-icons">edit</span>
+                    </button>
+
+                    <button class="playChannnel" onclick="playChannel('channel2')">
+                        <span class="material-icons">play_arrow</span>
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <span>Channel 3</span>
+                <div>
+                    <button class="clear" onclick="clearChannel('channel3')">
+                        <span class="material-icons">clear</span>
+                    </button>
+
+                    <button class="toggleRecording" onclick="toggleRecording('channel3')">
+                        <span class="material-icons">edit</span>
+                    </button>
+
+                    <button class="playChannnel" onclick="playChannel('channel3')">
+                        <span class="material-icons">play_arrow</span>
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <span>Channel 4</span>
+                <div>
+                    <button class="clear" onclick="clearChannel('channel4')">
+                        <span class="material-icons">clear</span>
+                    </button>
+
+                    <button class="toggleRecording" onclick="toggleRecording('channel4')">
+                        <span class="material-icons">edit</span>
+                    </button>
+
+                    <button class="playChannnel" onclick="playChannel('channel4')">
+                        <span class="material-icons">play_arrow</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+            <button id="playAllButton" onclick="playAllChannels()"> PLAY ALL CHANNELS </button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>

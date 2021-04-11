@@ -1,0 +1,97 @@
+button{
+  outline: none;
+  background-color: #1c1c1c;
+  border: none;
+  margin-bottom: 16px;
+  margin-right: 4px;
+
+  &#playAllButton{
+    color: white;
+    background-color: #1565C0;
+    margin-left: 8px;
+    padding: 8px;
+  }
+
+  &.clear{
+    background-color: #f44336;
+  }
+
+  &.toggleRecording{
+    background-color: #1565C0;
+  }
+
+  &.playChannnel{
+    background-color: #4caf50;
+  }
+
+  &:hover{
+    cursor: pointer;
+    filter: brightness(110%);
+  }
+
+  &:active{
+    filter: brightness(90%);
+  }
+}
+
+body{
+  background-color: #212121;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+#appContainer{
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+  width: 600px;
+}
+
+#soundControls{
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  width: 100%;
+  margin-bottom: 64px;
+
+  > div{
+    background-color: #1c1c1c;
+    border: 1px solid rgb(122, 122, 122);
+    text-align: center;
+    position: relative;
+
+    &:after{
+      content: "";
+      padding-bottom: 100%;
+      display: block;
+    }
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    > div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+}
+
+#recordings{
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 48px;
+
+  & > div {
+    text-align: center;
+  }
+
+  & > div > div{
+    margin-top: 6px;
+  }
+}

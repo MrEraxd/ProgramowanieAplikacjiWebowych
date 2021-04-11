@@ -1,0 +1,87 @@
+button {
+  outline: none;
+  background-color: #1c1c1c;
+  border: none;
+  margin-bottom: 16px;
+  margin-right: 4px;
+}
+button#playAllButton {
+  color: white;
+  background-color: #1565C0;
+  margin-left: 8px;
+  padding: 8px;
+}
+button.clear {
+  background-color: #f44336;
+}
+button.toggleRecording {
+  background-color: #1565C0;
+}
+button.playChannnel {
+  background-color: #4caf50;
+}
+button:hover {
+  cursor: pointer;
+  filter: brightness(110%);
+}
+button:active {
+  filter: brightness(90%);
+}
+
+body {
+  background-color: #212121;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+#appContainer {
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+  width: 600px;
+}
+
+#soundControls {
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  width: 100%;
+  margin-bottom: 64px;
+}
+#soundControls > div {
+  background-color: #1c1c1c;
+  border: 1px solid #7a7a7a;
+  text-align: center;
+  position: relative;
+}
+#soundControls > div:after {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+}
+#soundControls > div:hover {
+  cursor: pointer;
+}
+#soundControls > div > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#recordings {
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 48px;
+}
+#recordings > div {
+  text-align: center;
+}
+#recordings > div > div {
+  margin-top: 6px;
+}
+
+/*# sourceMappingURL=index.css.map */
