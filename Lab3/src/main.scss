@@ -1,1 +1,203 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
 
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(28,78,129);
+  background: linear-gradient(38deg, rgba(28,78,129,1) 0%, rgba(68,115,162,1) 100%);
+}
+
+#mainWrapper{
+  width: 1366px;
+  height: 800px;
+  background-color: #4473A2;
+  display: flex;
+}
+
+#leftBar{
+  background-color: #1C4E81;
+  width: 380px;
+  height: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-flow: column;
+
+  > #searchBar{
+    margin-bottom: 12px;
+
+    > input {
+      border: none;
+      border-radius: 2px;
+      width: 100%;
+      height: 32px;
+      padding-left: 8px;
+      outline: none;
+    }
+  }
+
+  > .function-buttons {
+    margin-bottom: 24px;
+
+    > button {
+      background-color: #26b326;
+      font-weight: bold;
+      border-radius: 4px;
+      color: white;
+      border: 0;
+      outline: none;
+      padding: 6px 12px;
+    }
+  }
+
+  > #mainInfo{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+
+    > #cityName{
+      font-size: 26px;
+    }
+
+    > #date{
+      padding-bottom: 32px;
+      font-size: 16px;
+    }
+
+    > #weatherIcon{
+      flex-grow: 1;
+      font-size: 200px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+
+      > img {
+        /*width: 100%;*/
+      }
+    }
+
+    > #weatherDesc{
+      padding-top: 32px;
+      text-align: center;
+      font-size: 28px;
+    }
+  }
+
+  > #minorInfo{
+    height: 160px;
+    margin-top: 48px;
+    border-top: 1px solid white;
+    box-sizing: content-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    > div {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+  }
+}
+
+#innerWrapper{
+  flex-grow: 1;
+  padding: 32px;
+  display: flex;
+  flex-flow: column;
+
+  .content-container{
+    overflow-y: auto;
+  }
+
+  > #innerNav{
+    height: 32px;
+    margin-bottom: 24px;
+
+    > div{
+      display: inline-block;
+      height: 100%;
+      margin-right: 8px;
+    }
+  }
+
+  #chart {
+    flex-grow: 1;
+  }
+
+  #history {
+    flex-grow: 1;
+
+    .gridHolder {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 32px;
+      padding-right: 24px;
+
+      .gridElement {
+        height: 240px;
+        border: 2px solid white;
+        text-align: center;
+        display: flex;
+        position: relative;
+        flex-flow: column;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          cursor: pointer;
+        }
+
+        span.close-button{
+          position: absolute;
+          right: 0;
+          background-color: white;
+          height: 20px;
+          width: 20px;
+          color: red;
+          font-weight: 600;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .gridElement .moreInfo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      flex-grow: 1;
+      justify-content: center;
+      align-items: center;
+
+      > div {
+        span.temp{
+          font-size: 26px;
+        }
+
+        &.minorInfo {
+          border-left: 1px solid white;
+          padding-left: 16px;
+
+          span {
+            display: block;
+            text-align: left;
+
+            &.humidity{
+              margin-bottom: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hidden{
+  display: none;
+}
