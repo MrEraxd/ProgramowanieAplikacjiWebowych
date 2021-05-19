@@ -12,6 +12,9 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js", ".json"]
   },
   devtool: "inline-source-map",
+  devServer: {
+    port: 1234,
+  },
   plugins: [
     new CopyPlugin([
       {
