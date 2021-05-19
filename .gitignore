@@ -1,4 +1,7 @@
 /*/.idea
-/webpack/*
+/webpack
 /*/node_modules
 /*/*.png
+/*/*.jpg
+/*/dist
+.gitignore
