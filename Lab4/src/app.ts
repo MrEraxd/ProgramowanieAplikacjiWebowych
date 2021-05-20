@@ -1,13 +1,10 @@
-export class App {
-    login = 'asd'
-    constructor() {
-        // const b = new Form()
-    }
-    getThis(e: any) {
-        console.log(this, e)
-    }
-    aa() {
+import { Note } from './modules/Note';
 
+export class App {
+    note: Note;
+
+    constructor() {
+        this.note = new Note({title: "test", color: "red", content: "value", creationDate: "data", isPinned: true});
+        console.log(this.note.HTMLObj);
     }
 }
-export const AAA = 10;

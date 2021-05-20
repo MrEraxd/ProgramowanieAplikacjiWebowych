@@ -1,8 +1,8 @@
 import { App } from './app';
 import './main.scss';
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
 
-const hello = "yep, it's working still sick";
-document.body.innerHTML = hello;
 const app = new App();
-app.getThis('');
-document.addEventListener('click', (ev)=>{app.getThis(ev)})
