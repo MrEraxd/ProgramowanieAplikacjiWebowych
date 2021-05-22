@@ -1,8 +1,4 @@
-import { App } from './app';
+import { App } from './App';
 import './main.scss';
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
 
 const app = new App();
