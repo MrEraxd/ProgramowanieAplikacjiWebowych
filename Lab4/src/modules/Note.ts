@@ -7,22 +7,25 @@ interface initValues {
 }
 
 export class Note{
-    #title:          string;
-    #content:        string;
-    #color:          string;
-    #creationDate:   string;
-    #isPinned:       boolean;
-    #HTMLObj:        HTMLDivElement;
+    #title:             string;
+    #content:           string;
+    #color:             string;
+    #creationDate:      string;
+    #isPinned:          boolean;
+    readonly #HTMLObj:  HTMLDivElement;
 
     constructor(props: initValues) {
-        Object.assign(this, props);
-        this.#HTMLObj = this.createHTML();
+        this.#title         = props.title;
+        this.#content       = props.content;
+        this.#color         = props.color;
+        this.#creationDate  = props.creationDate;
+        this.#isPinned      = props.isPinned;
+
+        this.#HTMLObj       = this.createHTML();
     }
 
     private createHTML(): HTMLDivElement {
         const wrapper = document.createElement("div");
-
-        console.log(this.#color);
 
         wrapper.innerHTML = `
             <h2>${this.#title}</h2>
@@ -31,12 +34,30 @@ export class Note{
         return wrapper;
     }
 
-    private static deleteNote(): void{
+    private changeTitle(newTitle: string): void{
 
     }
 
+    private changeContent(newContent: string): void{
+
+    }
+
+    private changeColor(newColor: string): void{
+
+    }
+
+    private togglePin(): void{
+
+    }
+
+    /* Getters & Setters */
+
     get HTMLObj(): HTMLDivElement{
         return this.#HTMLObj;
+    }
+
+    get NoteInfo(): object{
+        return ;
     }
 }
 
