@@ -48,6 +48,13 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        loader: "file-loader",
+        options: {
+          outputPath: "../dist/fonts",
+        }
       }
     ]
   }
