@@ -1,0 +1,38 @@
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/regular';
+
+.note{
+  width: 200px;
+  display: inline-flex;
+  flex-flow: column;
+  padding: 16px;
+  border: 1px solid #1c1c1c;
+  border-radius: 8px;
+
+  &__top-bar-wrapper{
+    display: flex;
+  }
+
+  &__title{
+    margin: 0;
+    flex-grow: 1;
+
+    &:hover{
+      filter: brightness(90%);
+    }
+  }
+
+  &__pin-icon{
+    align-self: center;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  &__bottom-bar-wrapper{
+    color: red;
+  }
+}
