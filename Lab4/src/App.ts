@@ -1,10 +1,9 @@
-import { Note } from './modules/Note';
+import { NotesWrapper } from "./modules/NotesWrapper";
 
 export class App {
-    note: Note;
+    notesWrapper: NotesWrapper;
 
     constructor() {
-        this.note = new Note({title: "test", color: "red", content: "value", creationDate: "data", isPinned: true});
-        console.log(this.note.HTMLObj);
+        this.notesWrapper = new NotesWrapper();
     }
 }
