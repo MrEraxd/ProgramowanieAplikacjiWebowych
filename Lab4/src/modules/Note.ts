@@ -1,4 +1,4 @@
-interface initValues {
+export type NoteType = {
     title:          string;
     content:        string;
     color:          string;
@@ -14,7 +14,7 @@ export class Note{
     #isPinned:          boolean;
     readonly #HTMLObj:  HTMLDivElement;
 
-    constructor(props: initValues) {
+    constructor(props: NoteType) {
         this.#title         = props.title;
         this.#content       = props.content;
         this.#color         = props.color;
@@ -28,10 +28,30 @@ export class Note{
         const wrapper = document.createElement("div");
 
         wrapper.innerHTML = `
-            <h2>${this.#title}</h2>
+            <div class="note">
+              <div class="note__top-bar-wrapper">
+                <h2 class="note__title">${this.#title}</h2>
+                <i class="fas fa-thumbtack note__pin-icon"></i>
+              </div>
+        
+              <p>${this.#content}</p>
+        
+              <div class="note__bottom-bar-wrapper">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-palette"></i>
+              </div>
+            </div>
         `;
 
         return wrapper;
+    }
+
+    private updateData(): void{
+
+    }
+
+    private showChangeForm(): void{
+
     }
 
     private changeTitle(newTitle: string): void{
@@ -47,6 +67,14 @@ export class Note{
     }
 
     private togglePin(): void{
+
+    }
+
+    hide(): void{
+
+    }
+
+    show(): void{
 
     }
 
