@@ -1,10 +1,14 @@
-export class AppStorage {
-    getData(key: string): Object | string | null {
+export default class AppStorage {
+    /**
+     *  @param key
+     *  //@return JSON Object
+     */
+    getData<Type>(key: string): Type | string{
         const data: string = localStorage.getItem(key);
 
         if(data){
             try {
-                return (JSON.parse(data));
+                return JSON.parse(data);
             }
             catch (e) {
                 return data;
@@ -14,7 +18,7 @@ export class AppStorage {
         return null;
     }
 
-    setData(key: string, data: Object | string): void{
+    setData(key: string, data: object | string): void{
         if(typeof data === "object"){
             localStorage.setItem(key, JSON.stringify(data));
         }
