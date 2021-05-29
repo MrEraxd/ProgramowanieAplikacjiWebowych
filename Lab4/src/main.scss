@@ -2,52 +2,351 @@ $fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/solid';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/regular';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-#create-note{
-  width: 200px;
-  display: inline-flex;
-  height: 100px;
+body, html{
+  margin: 0;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.page{
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.top-nav{
+  box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  background-color: #1c1c1c;
   padding: 16px;
-  border: 1px solid #1c1c1c;
-  border-radius: 8px;
-  justify-content: center;
+  display: flex;
   align-items: center;
 
-  &:hover{
-    cursor: pointer;
+  &__add-note-button{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: none;
+    background-color: #3C47E9;
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover{
+      filter: brightness(110%);
+      cursor: pointer;
+    }
+  }
+
+  &__search-bar{
+    height: 1.8em;
+    margin-left: 20px;
+    padding: 4px;
+    color: white;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+
+    &::placeholder{
+      color: white;
+    }
+  }
+}
+
+.main-panel{
+  flex-grow: 1;
+  display: flex;
+
+  &__notes{
+    flex-basis: 50%;
+    padding: 16px;
+  }
+
+  &__big-note{
+    flex-basis: 50%;
+    padding: 16px;
+    border-left: 3px solid #707070;
+    background-color: #F5F5F5;
+  }
+}
+
+.notes{
+  &__title{
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+
+  &__wrapper{
+    display: flex;
+    grid-gap: 1.8em;
+    margin-bottom: 36px;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+  }
+
+  &__pinned{
+    &--hidden{
+      display: none;
+    }
+  }
+
+  &__unpinned{
+    &--hidden{
+      display: none;
+    }
   }
 }
 
 .note{
-  width: 200px;
+  width: 260px;
+  border: 2px solid #E0E0E0;
+  border-radius: 16px;
+  padding: 18px;
+  box-sizing: border-box;
+  box-shadow: none;
+  transition: box-shadow 0.213s;
   display: inline-flex;
   flex-flow: column;
-  padding: 16px;
-  border: 1px solid #1c1c1c;
-  border-radius: 8px;
+  height: 15em;
 
-  &__top-bar-wrapper{
+  &:hover{
+    box-shadow: 2px 2px 5px 0 rgba(176, 176, 176, 0.5);
+  }
+
+  &__top-bar{
     display: flex;
   }
 
   &__title{
-    margin: 0;
     flex-grow: 1;
+    font-size: 1.2em;
+  }
 
-    &:hover{
-      filter: brightness(90%);
+  &__pinned-button{
+    align-self: center;
+
+    &--pinned{
+      -webkit-text-stroke: 1px gray;
     }
   }
 
-  &__pin-icon{
-    align-self: center;
+  &__content{
+    overflow: hidden;
+    line-height: 1.2em;
+    max-height: 9.4em;
+    flex-grow: 1;
+  }
+
+  &__creation-date{
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  &__bottom-button{
+    margin-right: 8px;
+    font-size: 0.9em !important;
+
+    &--trash{
+      margin-left: auto;
+    }
+  }
+
+  &__button{
+    font-size: 1.1em;
 
     &:hover{
       cursor: pointer;
     }
   }
 
-  &__bottom-bar-wrapper{
-    color: red;
+  &__color-select{
+    outline: none;
+    border: 1px solid black;
+  }
+
+  &--color_red{
+    background-color: #FB7C7C;
+    color: white;
+    border: none;
+  }
+
+  &--color_blue{
+    background-color: #64b5f6;
+    color: white;
+    border: none;
+  }
+
+  &--color_green{
+    background-color: #a5d6a7;
+    color: white;
+    border: none;
+    color: black;
+  }
+
+  &--color_yellow{
+    background-color: #fff59d;
+    color: black;
+    border: none;
+  }
+}
+
+.bottom-nav{
+  display: flex;
+
+  &__color-change-button{
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    align-self: flex-end;
+    border-radius: 50%;
+    border: 2px solid #616161 !important;
+
+    &--red{
+      background-color: #FB7C7C;
+      color: white;
+      border: none;
+    }
+
+    &--blue{
+      background-color: #64b5f6;
+      color: white;
+      border: none;
+    }
+
+    &--green{
+      background-color: #a5d6a7;
+      color: white;
+      border: none;
+    }
+
+    &--yellow{
+      background-color: #fff59d;
+      color: white;
+      border: none;
+    }
+  }
+}
+
+.big-note{
+  display: flex;
+
+  &__placeholder{
+    flex-basis: 100%;
+
+    &--hidden{
+      display: none !important;
+    }
+  }
+
+  &__form{
+    flex-basis: 100%;
+
+    &--hidden{
+      display: none !important;
+    }
+  }
+}
+
+.big-note-placeholder{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  color: #D4D4D4;
+
+  &__icon{
+    font-size: 6em;
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+
+  &__text{
+    font-size: 1.4em;
+  }
+}
+
+.big-note-form{
+  display: flex;
+  flex-flow: column;
+  padding: 24px;
+
+  &__top-bar{
+    width: 100%;
+    height: 45px;
+    display: flex;
+  }
+
+  &__title{
+    flex-grow: 1;
+    border: none;
+    background-color: inherit;
+    font-size: 2em;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+  }
+
+  &__pinned-button{
+    margin-left: 16px;
+    align-self: center;
+    font-size: 1.6em;
+    -webkit-text-stroke: 2px gray;
+    color: white;
+
+    &--pinned{
+      -webkit-text-stroke: unset;
+      color: inherit;
+    }
+  }
+
+  &__content{
+    margin: 24px 0;
+    flex-grow: 1;
+    border: none;
+    resize: none;
+    background-color: inherit;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    font-size: 1.3em;
+  }
+
+  &__save-button{
+    border: none;
+    background-color: #3C47E9;
+    color: white;
+    padding: 12px 48px;
+    border-radius: 16px;
+    font-size: 1.1em;
+    margin-right: 24px;
+
+    &:hover{
+      cursor: pointer;
+      filter: brightness(110%);
+    }
+  }
+
+  &__bottom-bar{
+    display: flex;
+    align-items: center;
+  }
+
+  &__bottom-button{
+    margin-right: 24px;
+    font-size: 1.3em;
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    &_right{
+      margin-left: auto;
+    }
   }
 }

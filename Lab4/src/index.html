@@ -5,26 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Starter</title>
   </head>
-  <body>
-    <div id="create-note">
-      <span>ADD NOTE</span>
-    </div>
 
-    <div id="notes-wrapper">
-      <div class="note">
-        <div class="note__top-bar-wrapper">
-          <h2 class="note__title">${this.#title}</h2>
-          <i class="fas fa-thumbtack note__pin-icon"></i>
+  <body class="page">
+    <nav class="top-nav">
+      <button class="top-nav__add-note-button"><i class="fas fa-plus"></i></button>
+      <!--<input class="top-nav__search-bar" placeholder="Search"/>-->
+    </nav>
+
+    <div class="main-panel page__main-panel">
+      <!-- Notes -->
+      <div class="notes main-panel__notes">
+        <!-- Notes Pinned -->
+        <div class="notes__pinned">
+          <h4 class="notes__title">PINNED</h4>
+          <div class="notes__wrapper"></div>
         </div>
 
-        <p>${this.#content}</p>
+        <!-- Notes Unpinned -->
+        <div class="notes__unpinned">
+          <h4 class="notes__title">UNPINNED</h4>
+          <div class="notes__wrapper"></div>
+        </div>
+      </div>
 
-        <div class="note__bottom-bar-wrapper">
-          <i class="fas fa-bell"></i>
-          <i class="fas fa-palette"></i>
+      <!-- Big note -->
+      <div class="big-note main-panel__big-note">
+        <!-- Placeholder -->
+        <div class="big-note-placeholder big-note__placeholder">
+
+          <div class="big-note-placeholder__icon">
+            <i class="fas fa-edit"></i>
+          </div>
+
+          <div class="big-note-placeholder__text">Chose note to edit</div>
+        </div>
+
+        <!-- Bit note form -->
+        <div class="big-note-form big-note__form big-note__form--hidden">
+          <div class="big-note-form__top-bar">
+            <input type="text" class="big-note-form__title" placeholder="Title">
+            <!--<i class="big-note-form__pinned-button fas fa-thumbtack"></i>-->
+          </div>
+
+          <textarea name="" class="big-note-form__content" placeholder="Note description"></textarea>
+
+          <div class="big-note-form__bottom-bar">
+            <button class="big-note-form__save-button">SAVE</button>
+            <!--<i class="big-note-form__bottom-button fas fa-bell"></i>-->
+            <!--<i class="big-note-form__bottom-button fas fa-palette"></i>-->
+            <!--<i class="big-note-form__bottom-button big-note-form__bottom-button_right fas fa-trash"></i>-->
+          </div>
         </div>
       </div>
     </div>
+
     <script src="index.js"></script>
   </body>
 </html>
