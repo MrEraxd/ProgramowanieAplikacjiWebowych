@@ -1,5 +1,5 @@
 export class WeatherAPI {
-    opwApiKey = "2aeed0ddb6d14cdb42661fcb32e30247";
+    opwApiKey = "KEY";
 
     constructor() {
 
