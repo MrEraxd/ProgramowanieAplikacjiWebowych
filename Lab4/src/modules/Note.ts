@@ -1,5 +1,4 @@
 export type NoteType = {
-    ID:             string;
     title:          string;
     content:        string;
     color:          string;
@@ -9,7 +8,6 @@ export type NoteType = {
 }
 
 export class Note{
-    #ID:                string;
     #title:             string;
     #content:           string;
     #color:             string;
@@ -17,11 +15,9 @@ export class Note{
     #creationDate:      string;
     #isDeleted:         boolean;
     #reloadNotesEvent:  Event;
-    #saveNoteEvent:     Event;
     readonly #HTMLObj:  HTMLDivElement;
 
     constructor(props?: NoteType) {
-        this.#ID                = props?.ID ?? Note.createID();
         this.#title             = props?.title ?? "";
         this.#content           = props?.content ?? "";
         this.#color             = props?.color ?? "";
@@ -29,8 +25,6 @@ export class Note{
         this.#creationDate      = props?.creationDate ?? Note.getTimestamp();
         this.#isDeleted         = false;
         this.#reloadNotesEvent  = new Event("reloadNotes");
-
-        console.log(props);
 
         this.#HTMLObj       = this.createHTML();
         this.addEventListeners();
@@ -46,7 +40,7 @@ export class Note{
             "July", "August", "September", "October", "November", "December"
         ];
 
-        return date.getDay() + " " + monthNames[date.getMonth()] + " " + date.getFullYear();
+        return date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear();
     }
 
     private static createID(): string{
@@ -220,13 +214,12 @@ export class Note{
 
     get data(): NoteType{
         return {
-            "ID": this.#ID,
             "title": this.#title,
             "content": this.#content,
             "color": this.#color,
             "isPinned": this.#isPinned,
-            "creationDate": this.#creationDate,
-            "isDeleted": this.#isDeleted
+            "isDeleted": this.#isDeleted,
+            "creationDate": this.#creationDate
         }
     }
 
